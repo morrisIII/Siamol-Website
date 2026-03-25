@@ -1,0 +1,280 @@
+/* --- Basic Reset & Global Styles --- */
+:root {
+    /* --- Updated Color Palette to Match Logo --- */
+    --primary-color: #0056b3; /* A strong blue from the logo text */
+    --secondary-color: #f4f4f4; /* Light gray for backgrounds */
+    --accent-color: #5DDDD3; /* The light cyan/turquoise from the logo */
+    --text-color: #333;
+    --light-text: #ebf6f5;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background: var(--light-text);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    text-decoration: none;
+    display: inline-block; /* Helps contain the image */
+}
+.logo img {
+    height: 50px; /* Set a fixed height for the logo */
+    width: 50px; /* Set equal width for a perfect circle */
+    border-radius: 50%; /* --- THIS MAKES THE LOGO ROUND --- */
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    display: block; /* Removes any extra space below the image */
+}
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.main-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+.main-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* --- UPDATED: Set a solid background color --- */
+    background-color: #041828; /* A dark, professional blue */
+    color: var(--light-text);
+    text-align: center;
+    padding: 120px 0; /* Generous padding for a full-screen feel */
+}
+
+.hero h1 {
+    color: var(--light-text);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.btn:hover {
+    background: #4ac5bc; /* Darker shade of accent color */
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background: transparent;
+    color: var(--light-text);
+    border: 2px solid var(--light-text);
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+    background: var(--light-text);
+    color: var(--primary-color);
+}
+
+/* --- Services Section --- */
+.services-section {
+    padding: 60px 0;
+    background: var(--secondary-color);
+}
+.services-section .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.service-card {
+    background: var(--light-text);
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.service-card .icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+/* --- CTA Section --- */
+.cta-section {
+    background: var(--primary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 60px 0;
+}
+.cta-section h2 {
+    color: var(--light-text);
+    font-size: 2.5rem;
+}
+.cta-section .btn {
+    margin-top: 20px;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background: #041828;
+    color: #aaa;
+    text-align: center;
+    padding: 30px 0;
+}
+.main-footer p {
+    margin: 0;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: row; /* Keep logo and toggle button on the same line */
+        align-items: center;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .btn-secondary {
+        display: block;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+
+/* --- ADDED: Mobile Navigation Styles --- */
+.nav-toggle {
+    display: none; /* Hidden on desktop */
+    background: transparent;
+    border: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--primary-color);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
+
+/* Styles for when the nav is open on mobile */
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+.nav-open .hamburger::after {
+    transform: rotate(90deg) translateX(6px);
+}
+
+/* Media query to show the hamburger menu on smaller screens */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: var(--light-text);
+        transform: translateX(100%);
+        transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+        z-index: 999; /* Below header (1000) but above content */
+    }
+
+    .main-nav ul {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-nav a {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    /* This class is added by JavaScript to show the menu */
+    .nav-open .main-nav {
+        transform: translateX(0);
+    }
+}
