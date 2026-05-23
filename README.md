@@ -1,23 +1,49 @@
-# Siamol-Website
-Website
+# siamol-electrical
 
-Image optimization
-------------------
+Static website for Siamol Electrical — maintained by morrisIII.
 
-To optimize images locally (converts JPG/PNG to WebP and resizes to max width 1600px):
+This repository contains the site source and a GitHub Actions workflow that publishes the site to GitHub Pages on pushes to `main` ([.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml)).
 
-1. Install dependencies:
+Quick start
 
-```bash
-npm install
+1. Initialize and commit (if not already):
+
+```powershell
+cd "c:\Users\MS\OneDrive\Documents\WEBSITE"
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
 ```
 
-2. Run the optimizer:
+2. Create and push the GitHub repo (use `gh` CLI or manual remote):
 
-```bash
-npm run optimize-images
+```powershell
+# Using GitHub CLI (recommended):
+gh repo create morrisIII/siamol-electrical --public --source=. --remote=origin --push
+
+# Or manually:
+# git remote add origin https://github.com/morrisIII/siamol-electrical.git
+# git push -u origin main
 ```
 
-Optimized files will be written to the `optimized-images/` folder. You can then replace originals or reference the optimized versions in your HTML.
+3. (Optional) Add your custom domain — create a `CNAME` file containing the exact domain and push:
 
-Notes: `sharp` requires native binaries; installation may download prebuilt binaries or compile locally. Ensure build tools are available if installation fails.
+```powershell
+echo "example.com" > CNAME
+git add CNAME
+git commit -m "Add CNAME for custom domain"
+git push
+```
+
+DNS setup (choose one):
+- Apex domain (example.com): add A records to GitHub Pages IPs:
+	- `185.199.108.153`
+	- `185.199.109.153`
+	- `185.199.110.153`
+	- `185.199.111.153`
+- `www` subdomain: add a CNAME record pointing `www` → `morrisIII.github.io`.
+
+After pushing, check the Actions tab for the `Deploy to GitHub Pages` workflow and the repository Settings → Pages for the published URL. Propagation for custom domains can take minutes to a few hours.
+
+If you want, reply with your custom domain (e.g., `example.com`) and whether you want the apex or `www` published — I will create the `CNAME`, commit it, and give exact DNS entries.
