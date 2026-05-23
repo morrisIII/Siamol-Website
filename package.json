@@ -1,0 +1,11 @@
+{
+  "name": "siamol-website",
+  "version": "1.0.0",
+  "description": "Siamol Electrical and Electronics static website",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.32.0"
+  }
+}
