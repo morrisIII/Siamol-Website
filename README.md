@@ -27,40 +27,4 @@ gh repo create morrisIII/siamol-electrical --public --source=. --remote=origin -
 # git push -u origin main
 ```
 
-DNS setup (choose one):
-- Apex domain (example.com): add A records to GitHub Pages IPs:
-	- `185.199.108.153`
-	- `185.199.109.153`
-	- `185.199.110.153`
-	- `185.199.111.153`
-- `www` subdomain: add a DNS record pointing `www` → `morrisIII.github.io`.
-
-After pushing, check the Actions tab for the `Deploy to GitHub Pages` workflow and the repository Settings → Pages for the published URL. Propagation for custom domains can take minutes to a few hours.
-
-Apex DNS records (recommended if you want the root domain to resolve)
-
-If you want `siamolelectrical.com` (the apex/root) to resolve to the site, add these A records at your DNS provider for the root (`@`):
-
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
-
-Notes:
-- Some registrars support `ALIAS`/`ANAME` records which can point the apex to `morrisIII.github.io`; use that if available.
-- Remove conflicting records for the same name before adding (for example, an existing record at the apex).
-
-Verify DNS propagation (PowerShell):
-
-```powershell
-Resolve-DnsName www.siamolelectrical.com
-Resolve-DnsName siamolelectrical.com -Type A
-ipconfig /flushdns
-```
-
-Or using `dig`:
-
-```bash
-dig +short www.siamolelectrical.com
-dig +short A siamolelectrical.com
-```
+After pushing, check the Actions tab for the `Deploy to GitHub Pages` workflow and the repository Settings 12 Pages for the published URL.
