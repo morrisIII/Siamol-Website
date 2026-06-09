@@ -1,11 +1,13 @@
 /* --- Basic Reset & Global Styles --- */
 :root {
-    /* --- Updated Color Palette to Match Logo --- */
-    --primary-color: #0056b3; /* A strong blue from the logo text */
-    --secondary-color: #f4f4f4; /* Light gray for backgrounds */
-    --accent-color: #5DDDD3; /* The light cyan/turquoise from the logo */
-    --text-color: #333;
-    --light-text: #ebf6f5;
+    /* --- Updated Engineering Color Palette --- */
+    --primary-color: #60a5fa; /* Engineering blue */
+    --secondary-color: #0f172a; /* Dark technical background */
+    --surface-color: #111827; /* Panel surface */
+    --accent-color: #f59e0b; /* Amber highlight */
+    --text-color: #e2e8f0;
+    --light-text: #f8fafc;
+    --border-color: rgba(148,163,184,0.16);
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Lato', sans-serif;
 }
@@ -15,6 +17,7 @@ body {
     font-family: var(--font-body);
     color: var(--text-color);
     line-height: 1.6;
+    background: var(--secondary-color);
 }
 
 .container {
@@ -30,12 +33,12 @@ h1, h2, h3 {
 
 /* --- Header & Navigation --- */
 .main-header {
-    background: var(--light-text);
+    background: rgba(15, 23, 42, 0.95);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 .main-header .container {
     display: flex;
@@ -72,11 +75,13 @@ h1, h2, h3 {
 
 /* --- Hero Section --- */
 .hero {
-    /* --- UPDATED: Set a solid background color --- */
-    background-color: #041828; /* A dark, professional blue */
+    /* --- UPDATED: Engineering-inspired background --- */
+    background: radial-gradient(circle at top left, rgba(96,165,250,0.18), transparent 25%),
+                linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.95));
     color: var(--light-text);
     text-align: center;
     padding: 120px 0; /* Generous padding for a full-screen feel */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .hero h1 {
@@ -100,24 +105,25 @@ h1, h2, h3 {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 .btn:hover {
-    background: #4ac5bc; /* Darker shade of accent color */
+    background: rgba(245,158,11,0.9);
+    color: var(--secondary-color);
     transform: translateY(-2px);
 }
 .btn-secondary {
-    background: transparent;
+    background: rgba(248,250,252,0.08);
     color: var(--light-text);
-    border: 2px solid var(--light-text);
+    border: 2px solid rgba(248,250,252,0.25);
     margin-left: 10px;
 }
 .btn-secondary:hover {
-    background: var(--light-text);
+    background: rgba(248,250,252,0.16);
     color: var(--primary-color);
 }
 
 /* --- Services Section --- */
 .services-section {
     padding: 60px 0;
-    background: var(--secondary-color);
+    background: rgba(96,165,250,0.06);
 }
 .services-section .section-title {
     text-align: center;
@@ -130,11 +136,12 @@ h1, h2, h3 {
     gap: 30px;
 }
 .service-card {
-    background: var(--light-text);
+    background: var(--surface-color);
     padding: 30px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(96,165,250,0.12);
+    box-shadow: 0 16px 50px rgba(15,23,42,0.22);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .service-card:hover {
@@ -167,10 +174,11 @@ h1, h2, h3 {
 
 /* --- Footer --- */
 .main-footer {
-    background: #041828;
-    color: #aaa;
+    background: rgba(15, 23, 42, 0.95);
+    color: #cbd5e1;
     text-align: center;
     padding: 30px 0;
+    border-top: 1px solid rgba(96,165,250,0.12);
 }
 .main-footer p {
     margin: 0;
