@@ -152,6 +152,8 @@ body {
 .rate-buttons{ display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
 .rate-btn{ min-width:54px; padding:14px 0; border-radius:12px; border: 1px solid rgba(248,250,252,0.18); background: rgba(248,250,252,0.08); color: var(--light-text); font-weight:700; cursor:pointer; transition: background 0.2s ease, transform 0.2s ease; }
 .rate-btn:hover{ background: rgba(245,158,11,0.22); transform: translateY(-2px); }
+.rate-btn.selected{ background: rgba(245,158,11,0.95); color: var(--secondary); border-color: rgba(245,158,11,0.35); }
+.rate-response{ margin-top:12px; color: var(--light-text); font-size:0.98rem; text-align:center; }
 .rate-note{ margin:0; color: var(--muted); text-align:center; }
 
 .contact-grid{ display:grid; grid-template-columns:1fr 420px; gap:24px; align-items:start }

@@ -33,4 +33,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Customer rating buttons
+  const rateButtons = document.querySelectorAll('.rate-btn');
+  const rateResponse = document.querySelector('.rate-response');
+  const ratingKey = 'siamol-rating';
+
+  function updateRatingState(value) {
+    rateButtons.forEach(btn => {
+      const selected = btn.textContent.trim() === value;
+      btn.classList.toggle('selected', selected);
+      btn.setAttribute('aria-pressed', String(selected));
+    });
+    if (rateResponse) {
+      rateResponse.textContent = value
+        ? `Thanks for rating us ${value}/5. Your feedback helps us improve every job.`
+        : '';
+    }
+  }
+
+  if (rateButtons.length && rateResponse) {
+    const savedRating = localStorage.getItem(ratingKey);
+    if (savedRating) {
+      updateRatingState(savedRating);
+    }
+
+    rateButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rating = btn.textContent.trim();
+        localStorage.setItem(ratingKey, rating);
+        updateRatingState(rating);
+      });
+    });
+  }
 });
