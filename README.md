@@ -27,4 +27,25 @@ gh repo create morrisIII/siamol-electrical --public --source=. --remote=origin -
 # git push -u origin main
 ```
 
-After pushing, check the Actions tab for the `Deploy to GitHub Pages` workflow and the repository Settings 12 Pages for the published URL.
+After pushing, check the Actions tab for the `Deploy to GitHub Pages` workflow and the repository Settings → Pages for the published URL.
+
+## Custom domain setup
+
+If you want to publish to `www.siamolelectrical.com`, add a `CNAME` file at the repository root with:
+
+```text
+www.siamolelectrical.com
+```
+
+Then configure your DNS provider:
+
+- `CNAME` record:
+  - Host / Name: `www`
+  - Value / Target: `morrisIII.github.io`
+- Optional root domain `A` records for `siamolelectrical.com`:
+  - `185.199.108.153`
+  - `185.199.109.153`
+  - `185.199.110.153`
+  - `185.199.111.153`
+
+Wait for DNS propagation after making changes, then verify your domain resolves correctly.
