@@ -123,8 +123,17 @@ body {
 }
 
 .service-card .icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 20px;
+    color: var(--accent-color);
+}
+.service-card .icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .service-card h3 {
